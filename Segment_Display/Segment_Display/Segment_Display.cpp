@@ -32,14 +32,52 @@ unsigned char BuildCharacter(unsigned char c)
 
 unsigned char ConvertCharToSegDisplay(unsigned char c)
 {
+	// Seven segment display
+	//     (c)
+	//      __
+	// (b) |__| (d)
+	// (a) |__| (e)  .(h)
+	//      (f)
+	// (g) is the diving center line
+	
 	unsigned char newChar = 0;
 
 	switch (c)
 	{
-		case '0': return (newChar | (A | B | C | D | E | F));
+		case '0' || 'D' || 'O': return (newChar | (A | B | C | D | E | F));
 		case '1': return (newChar | (D | E));
-		case '2': return (newChar | (C | D | G | A | F));
+		case '2' || 'Z' || 'z': return (newChar | (C | D | G | A | F));
 		case '3': return (newChar | (C | D | G | E | F));
+		case '4' || 'Y' || 'y': return (newChar | (B | G | D | E));
+		case '5' || 'S' || 's': return (newChar | (C | B | G | E | F));
+		case '6': return (newChar | (C | B | G | A | F | E));
+		case '7': return (newChar | (C | D | E));
+		case '8' || 'B': return (newChar | (A | B | C | D | E | F | G));
+		case '9' || 'Q' || 'q': return (newChar | (B | C | G | D | E| F));
+		case 'A' || 'R': return (newChar | (A | B | C | D | E | G));
+		case 'a': return (newChar | (A | C | D | E | F | G));
+		case 'b': return (newChar | (A | B | E | F | G));
+		case 'C': return (newChar | (A | B | C | F));
+		case 'c': return (newChar | (A | F | G));
+		case 'd': return (newChar | (A | F | G | E | D));
+		case 'E' || 'e': return (newChar | (C | B | A | F | G));
+		case 'F' || 'f': return (newChar | (C | B | A | G));
+		case 'G': return (newChar | (C | B | A | F | E));
+		case 'g': return (newChar | (C | B | G | D | E | F));
+		case 'H' || 'K' || 'k' || 'M' || 'm' || 'W' || 'w' || 'X' || 'x': return (newChar | (A | B | D | E | G));
+		case 'h': return (newChar | (A | B | G | E));
+		case 'I': return (newChar | (D | E));
+		case 'i': return (newChar | (E));
+		case 'J' || 'j': return (newChar | (D | E | F));
+		case 'L': return (newChar | (B | A | F));
+		case 'l': return (newChar | (B | A));
+		case 'N' || 'n': return (newChar (A | G | E));
+		case 'o': return (newChar (A | G | E | F));
+		case 'P' || 'p': return (newChar(A | B | C | D | G));
+		case 'r': return (newChar | (A | G));
+		case 'T' || 't': return (newChar | (A | B | F | G));
+		case 'U' || 'V': return (newChar | (A | B | D | E | F));
+		case 'u' || 'v': return (newChar | (A | F | E));
 	}
 }
 
@@ -80,6 +118,10 @@ int main()
 	PrintSegmentedCharacter(ConvertCharToSegDisplay('1'));
 	PrintSegmentedCharacter(ConvertCharToSegDisplay('2'));
 	PrintSegmentedCharacter(ConvertCharToSegDisplay('3'));
-
+	PrintSegmentedCharacter(ConvertCharToSegDisplay('4'));
+	PrintSegmentedCharacter(ConvertCharToSegDisplay('5'));
+	PrintSegmentedCharacter(ConvertCharToSegDisplay('6'));
+	PrintSegmentedCharacter(ConvertCharToSegDisplay('7'));
+	
 	return 0;
 }
