@@ -1,0 +1,3 @@
+﻿  Segment_Display.cpp
+c:\users\c\documents\github\segmented_display\segment_display\segment_display\segment_display.cpp(44): warning C4715: 'ConvertCharToSegDisplay': not all control paths return a value
+  Segment_Display.vcxproj -> C:\Users\c\Documents\GitHub\Segmented_Display\Segment_Display\Debug\Segment_Display.exe
